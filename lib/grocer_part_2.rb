@@ -56,7 +56,11 @@ def checkout(cart, coupons)
   index = 0 
   
   final_cart.each do |key|
-    
+    total += key[:price] * key[:count] 
+    index += 1
+  end 
+  if total > 100
+    total -= (total * 0.10)
   end 
   total 
 end
