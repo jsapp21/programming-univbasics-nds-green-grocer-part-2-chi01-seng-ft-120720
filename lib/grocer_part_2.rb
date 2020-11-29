@@ -51,5 +51,16 @@ def checkout(cart, coupons)
   coupon_cart = apply_coupons(new_cart, coupons)
   final_cart = apply_clearance(coupon_cart)
   
+  total = 0 
 
+  index = 0 
+  
+  final_cart.each do |key|
+    total += key[:price] * key[:count] 
+    index += 1
+  end 
+  if total > 100
+    total -= (total * 0.10)
+  end 
+  total 
 end
